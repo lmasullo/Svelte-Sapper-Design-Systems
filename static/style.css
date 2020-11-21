@@ -10,6 +10,7 @@
   --darkBlue: #00214d;
   --grey: #bfbfbf;
   --lightGrey: #f2f4f6;
+  --white: #fff;
 
   /* Define Colors Intentions */
   --primary: var(--green);
@@ -17,6 +18,7 @@
   --background: var(--lightGrey);
   --textColor: var(--black);
   --lineColor: var(--darkBlue);
+  --cardBackground: var(--white);
 
   /* Styles */
   --line: solid 1px var(--lineColor);
@@ -41,6 +43,11 @@
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --level-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    /* Positioning */
+    --containerPadding: 2.5%;
+    --headerHeight: 3rem;
+    --borderRadius: 10px;
 }
 
 /* The styling for the main, needs to be in _layout.svelte or remove */
@@ -72,13 +79,23 @@ avoid pixels
 /* From https://type-scale.com/ */
 @import url("https://fonts.googleapis.com/css?family=Work+Sans:400|Space+Mono:400");
 
+/*16px*/
 html {
   font-size: var(--baseFontSize);
-} /*16px*/
+  /* This adjusts how the padding is measured?? */
+  box-sizing: border-box;
+} 
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 
 .layout {
-  margin: 0 auto;
-  width: 95%;
+  /* margin: 0 auto;
+  width: 95%; */
+  padding: calc(2rem + var(--headerHeight)) var(--containerPadding);
 }
 
 /* Grid Layouts */
@@ -106,15 +123,65 @@ html {
   --justifyContent: space-around;
 }
 
+header {
+  --headerBackground: var(--darkBlue);
+  background: var(--headerBackground);
+  color: var(--white);;
+  height: var(--headerHeight);
+  box-shadow: var(--level-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--containerPadding);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+header nav a {
+  color: var(--white);;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  border-bottom: solid 2px var(--yellow);
+}
+
+/* The plus a only puts the margin on a element it it is next to another element */
+header nav a + a {
+  margin-left: 10px;
+}
+
+footer {
+  --footerTextColor: var(--lightGrey);
+  background: var(--black);
+  color: var(--white);;
+  padding: 2rem var(--containerPadding);
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+footer a{ 
+  color: var(--footerTextColor);
+}
+
+footer p {
+  margin-bottom: 0;
+  max-width: none;
+}
+
 body {
-  /* background: white; */
+  /* background: var(--white);; */
   /* color: #000000; */
   background: var(--background);
   color: var(--textColor);
   font-family: var(--bodyFont);
   font-weight: 400;
   line-height: 1.75;
-  padding-bottom: 300px;
 }
 
 p {
@@ -192,7 +259,7 @@ blockquote {
   border: solid 1px var(--darkBlue);
   margin: 10px;
   padding: 2em;
-  background: white;
+  background: var(--white);;
   box-shadow: var(--level-3);
 }
 
@@ -203,8 +270,9 @@ label {
 
 input,
 textarea {
+  --borderRadius: 4px;
   border: var(--line);
-  border-radius: 4px;
+  border-radius: var(--borderRadius);
   padding: 4px 5px;
 }
 
@@ -234,7 +302,7 @@ button {
   color: var(--textColor);
   background-color: var(--buttonColor);
   border: none;
-  border-radius: 10px;
+  border-radius: var(--borderRadius);
   padding: 5px 25px;
   box-shadow: var(--level-1);
   cursor: pointer;
@@ -247,7 +315,7 @@ button:hover {
 
 button.cancel {
   --buttonColor: var(--danger);
-  --textColor: white;
+  --textColor: var(--white);;
 }
 
 /* Style based on attribute */
@@ -259,6 +327,29 @@ button.small {
   font-size: var(--smallText);
   padding: 5px 10px;
 }
+
+.fake-logo {
+  font-size: var(--baseFontSize);
+  margin: 0;
+}
+
+
+.card {
+  padding: 2em;
+  background: var(--white);;
+  box-shadow: var(--level-3);
+  border-radius: var(--borderRadius);
+}
+
+/* First child element within a card */
+.card > *:first-child {
+  margin-top: 0;
+}
+
+.card > *:last-child {
+  margin-bottom: 0;
+}
+
 
 /* Media Queries */
 /* Can't use css variables in media queries */
@@ -279,3 +370,4 @@ button.small {
     display: flex;
   }
 }
+

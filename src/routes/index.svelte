@@ -44,9 +44,29 @@
   <title>Sapper project template</title>
 </svelte:head>
 
+<header>
+  <h1 class="fake-logo">Fake Logo</h1>
+  <nav>
+    <a href="##">Home</a>
+    <a href="##">About</a>
+    <a href="##">Contact</a>
+  </nav>
+
+</header>
+
 <main class="layout">
   <h1>Great success!</h1>
+  <hr />
+  <div class="card">
+    <h3>Card Heading</h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor
+    </p>
+    <button>Accept</button>
 
+  </div>
+  <hr />
   <p>
     Lorem ipsum dolor sit amet,
     <a href="##">consectetur</a>
@@ -60,8 +80,10 @@
 
   <h2>Great success!</h2>
   <blockquote>
-    <strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-      eiusmod tempor</strong>
+    <strong>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor
+    </strong>
     incididunt ut labore et
     <a href="##">consectetur</a>
     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -200,3 +222,13 @@
   <a href="www.mrpro.app">Morning Report Pro</a>
   <hr />
 </main>
+
+<footer>
+  <h3 class="fake-logo">Fake Logo</h3>
+  <nav>
+    <a href="##">Home</a>
+    <a href="##">About</a>
+    <a href="##">Contact</a>
+  </nav>
+  <p>&copy 2020 LPA</p>
+</footer>
