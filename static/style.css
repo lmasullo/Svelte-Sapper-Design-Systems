@@ -22,6 +22,8 @@
   --line: solid 1px var(--lineColor);
 
   /* Typography */
+  /* 100% is 16px, 112.5% is 18px */
+  --baseFontSize: 100%;
   --headingFont: "Space Mono", monospace;
   --bodyFont: "Work Sans", sans-serif;
   --h1: 3.052rem;
@@ -70,10 +72,8 @@ avoid pixels
 /* From https://type-scale.com/ */
 @import url("https://fonts.googleapis.com/css?family=Work+Sans:400|Space+Mono:400");
 
-/* Media Queries */
-
 html {
-  font-size: 100%;
+  font-size: var(--baseFontSize);
 } /*16px*/
 
 .layout {
@@ -84,7 +84,7 @@ html {
 /* Grid Layouts */
 .grid {
   --gridCols: 2;
-  display: grid;
+  display: block;
   grid-template-columns: repeat(var(--gridCols), 1fr);
 }
 
@@ -98,7 +98,7 @@ html {
 
 .flex {
   --justifyContent: space-between;
-  display: flex;
+  display: block;
   justify-content: var(--justifyContent);
 }
 
@@ -130,19 +130,21 @@ p a {
   cursor: pointer;
 }
 
+/* Hover for anchor tags in a paragraph */
+p a:hover {
+  color: red;
+  font-size: 1.1rem;
+}
+
 /* All anchor tags */
-a {
-  /* Anchor tag within a paragraph */
+/* a {
+   Anchor tag within a paragraph 
   color: var(--black);
   text-decoration: none;
   border-bottom: solid 2px var(--primary);
   cursor: pointer;
-}
-
-a:hover {
-  color: red;
-  font-size: 1.1rem;
-}
+} 
+*/
 
 h1,
 h2,
@@ -256,4 +258,24 @@ button[disabled] {
 button.small {
   font-size: var(--smallText);
   padding: 5px 10px;
+}
+
+/* Media Queries */
+/* Can't use css variables in media queries */
+@media only screen and (min-width: 500px) {
+  /* body {
+    background: red !important;
+  } */
+
+  :root {
+    --baseFontSize: 112.5%;
+  }
+
+  .grid {
+    display: grid;
+  }
+
+  .flex {
+    display: flex;
+  }
 }
