@@ -10,6 +10,7 @@
   --darkBlue: #00214d;
   --grey: #bfbfbf;
   --lightGrey: #f2f4f6;
+  --darkGrey: #222;
   --white: #fff;
 
   /* Define Colors Intentions */
@@ -17,8 +18,13 @@
   --danger: var(--red);
   --background: var(--lightGrey);
   --textColor: var(--black);
+  --buttonTextColor: var(--black);
   --lineColor: var(--darkBlue);
   --cardBackground: var(--white);
+  --headerBackground: var(--darkBlue);
+  --footerTextColor: var(--lightGrey);
+  --footerBackground: var(--black);
+  
 
   /* Styles */
   --line: solid 1px var(--lineColor);
@@ -130,7 +136,6 @@ html {
 }
 
 header {
-  --headerBackground: var(--darkBlue);
   background: var(--headerBackground);
   color: var(--white);
   height: var(--headerHeight);
@@ -160,8 +165,7 @@ header nav a + a {
 }
 
 footer {
-  --footerTextColor: var(--lightGrey);
-  background: var(--black);
+  background: var(--footerBackground);
   color: var(--white);
   padding: 2rem var(--containerPadding);
   text-align: center;
@@ -195,19 +199,20 @@ p {
   max-width: 40em;
 }
 
-p a {
+p a,
+blockquote a {
   /* Anchor tag within a paragraph */
-  color: var(--black);
+  color: var(--textColor);
   text-decoration: none;
   border-bottom: solid 2px var(--primary);
   cursor: pointer;
 }
 
 /* Hover for anchor tags in a paragraph */
-p a:hover {
+/* p a:hover {
   color: red;
   font-size: 1.1rem;
-}
+} */
 
 /* All anchor tags */
 /* a {
@@ -256,12 +261,8 @@ small,
   font-size: var(--smallText);
 }
 
-.dark {
-  background: var(--textColor);
-  color: var(--background);
-}
-
 blockquote {
+  color: var(--textColor);
   border: solid 1px var(--darkBlue);
   margin: 10px;
   padding: 2em;
@@ -305,7 +306,7 @@ button {
   /* --textColor: var(--textColor); */
 
   appearance: none;
-  color: var(--textColor);
+  color: var(--buttonTextColor);
   background-color: var(--buttonColor);
   border: none;
   border-radius: var(--borderRadius);
@@ -341,7 +342,7 @@ button.small {
 
 .card {
   padding: 2em;
-  background: var(--white);
+  background: var(--cardBackground);
   box-shadow: var(--level-3);
   border-radius: var(--borderRadius);
 }
@@ -353,6 +354,16 @@ button.small {
 
 .card > *:last-child {
   margin-bottom: 0;
+}
+
+
+.dark {
+  --background: var(--black);
+  --cardBackground: var(--darkBlue);
+  --txtColor: var(--lightGrey);
+  --headerBackground: var(--darkGrey);
+  --buttonTextColor: var(--black);
+  --footerBackground: var(--darkGrey); 
 }
 
 /* Media Queries */
