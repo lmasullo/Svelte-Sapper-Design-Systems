@@ -10,6 +10,7 @@
   --darkBlue: #00214d;
   --grey: #bfbfbf;
   --lightGrey: #f2f4f6;
+  --darkGrey: #222;
   --white: #fff;
 
   /* Define Colors Intentions */
@@ -19,6 +20,9 @@
   --textColor: var(--black);
   --lineColor: var(--darkBlue);
   --cardBackground: var(--white);
+  --headerBackground: var(--darkBlue);
+  --footerBackground: var(--darkBlue)
+  --buttonTextColor: var(--primary);
 
   /* Styles */
   --line: solid 1px var(--lineColor);
@@ -130,7 +134,6 @@ html {
 }
 
 header {
-  --headerBackground: var(--darkBlue);
   background: var(--headerBackground);
   color: var(--white);
   height: var(--headerHeight);
@@ -181,8 +184,6 @@ footer p {
 }
 
 body {
-  /* background: var(--white);; */
-  /* color: #000000; */
   background: var(--background);
   color: var(--textColor);
   font-family: var(--bodyFont);
@@ -256,11 +257,6 @@ small,
   font-size: var(--smallText);
 }
 
-.dark {
-  background: var(--textColor);
-  color: var(--background);
-}
-
 blockquote {
   border: solid 1px var(--darkBlue);
   margin: 10px;
@@ -301,12 +297,9 @@ textarea {
 }
 
 button {
-  --buttonColor: var(--primary);
-  /* --textColor: var(--textColor); */
-
   appearance: none;
-  color: var(--textColor);
-  background-color: var(--buttonColor);
+  color: var(--buttonTextColor);
+  background-color: var(--primary);
   border: none;
   border-radius: var(--borderRadius);
   padding: 5px 25px;
@@ -341,7 +334,7 @@ button.small {
 
 .card {
   padding: 2em;
-  background: var(--white);
+  background: var(--cardBackground);
   box-shadow: var(--level-3);
   border-radius: var(--borderRadius);
 }
@@ -353,6 +346,15 @@ button.small {
 
 .card > *:last-child {
   margin-bottom: 0;
+}
+
+.dark {
+  --background: var(--black);
+  --textColor: var(--lightGrey);
+  --cardBackground: var(--darkGrey);
+  --headerBackground: var(--darkGrey);
+  --buttonTextColor: var(--black);
+  --footerBackground: var(--darkGrey);
 }
 
 /* Media Queries */
