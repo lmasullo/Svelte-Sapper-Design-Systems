@@ -18,11 +18,13 @@
   --danger: var(--red);
   --background: var(--lightGrey);
   --textColor: var(--black);
+  --buttonColor: var(--primary);
+  --buttonTextColor: var(--black);
   --lineColor: var(--darkBlue);
   --cardBackground: var(--white);
   --headerBackground: var(--darkBlue);
-  --footerBackground: var(--darkBlue)
-  --buttonTextColor: var(--primary);
+  --footerTextColor: var(--lightGrey);
+  --footerBackground: var(--black);
 
   /* Styles */
   --line: solid 1px var(--lineColor);
@@ -73,6 +75,8 @@ Least to Most
 /* Typography 
 https://type-scale.com/
 https://www.fontpair.co/
+https://loremipsum.io/
+https://www.happyhues.co
 
 em is relative to parent or container
 rem is relative to html root
@@ -163,8 +167,7 @@ header nav a + a {
 }
 
 footer {
-  --footerTextColor: var(--lightGrey);
-  background: var(--black);
+  background: var(--footerBackground);
   color: var(--white);
   padding: 2rem var(--containerPadding);
   text-align: center;
@@ -196,19 +199,20 @@ p {
   max-width: 40em;
 }
 
-p a {
+p a,
+blockquote a {
   /* Anchor tag within a paragraph */
-  color: var(--black);
+  color: var(--textColor);
   text-decoration: none;
   border-bottom: solid 2px var(--primary);
   cursor: pointer;
 }
 
 /* Hover for anchor tags in a paragraph */
-p a:hover {
+/* p a:hover {
   color: red;
   font-size: 1.1rem;
-}
+} */
 
 /* All anchor tags */
 /* a {
@@ -258,10 +262,11 @@ small,
 }
 
 blockquote {
+  color: var(--textColor);
   border: solid 1px var(--darkBlue);
   margin: 10px;
   padding: 2em;
-  background: var(--white);
+  background: var(--blockQuoteBackground);
   box-shadow: var(--level-3);
 }
 
@@ -299,7 +304,7 @@ textarea {
 button {
   appearance: none;
   color: var(--buttonTextColor);
-  background-color: var(--primary);
+  background-color: var(--buttonColor);
   border: none;
   border-radius: var(--borderRadius);
   padding: 5px 25px;
@@ -350,8 +355,8 @@ button.small {
 
 .dark {
   --background: var(--black);
+  --cardBackground: var(--darkBlue);
   --textColor: var(--lightGrey);
-  --cardBackground: var(--darkGrey);
   --headerBackground: var(--darkGrey);
   --buttonTextColor: var(--black);
   --footerBackground: var(--darkGrey);
